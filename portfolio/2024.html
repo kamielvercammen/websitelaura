@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2024 — Laura Theeuwen</title>
+  <link rel="icon" type="image/png" href="../images/homepage/yourimage.png">
+  <meta name="description" content="Paintings by Laura Theeuwen from 2024." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Work+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!--
+    NOTE: this page is inside the portfolio/ subfolder, so we go up
+    one level (..) to reach the css/ folder. Every portfolio/YEAR.html
+    page uses this same path: ../css/style.css
+  -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<!--
+  THE YEAR ACCENT SYSTEM
+  ========================
+  The --year-accent variable is set RIGHT HERE on the <body> tag.
+  This single line changes:
+    • the 3px color band at the very top of the page
+    • the ghost watermark year number
+    • the "Inquire about this piece" button color
+
+  Choose a color that reflects the emotional palette of that year's
+  work — desaturated and warm reads best alongside the site palette.
+
+  SUGGESTED ACCENTS PER YEAR (feel free to customise):
+    2025 → #7a8c7a  (sage green — fresh, calm)
+    2024 → #8c7a8c  (dusty plum — introspective)
+    2023 → #7a828c  (slate blue — cool)
+    2022 → #8c7a6b  (clay — earthy)
+    2021 → #8c7070  (dusty rose — delicate)
+    2020 → #a98344  (antique gold — same as site default)
+-->
+<body style="--year-accent: #7a8c7a">
+
+  <!-- ============================================================
+       ACCENT BAND
+       A single 3px line in the year's unique color. Subtle but
+       immediately visible — the first thing the page communicates.
+       ============================================================ -->
+  <div class="year-accent-band" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       TOP BAR
+       Note that all hrefs point UP one level (../) because this
+       file lives inside the portfolio/ subfolder.
+       ============================================================ -->
+  <header class="topbar">
+    <a href="../index.html" class="brand">
+      <span class="brand-name">Laura Theeuwen</span>
+      <span class="brand-title">Painter</span>
+          </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../portfolio.html" class="nav-link is-active">Portfolio</a>
+      <a href="../exhibitions.html" class="nav-link">Exhibitions</a>
+      <a href="../story.html" class="nav-link">Story</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+      <a href="https://www.instagram.com/laura_theeuwen_art/" class="nav-icon" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       YEAR HERO BANNER
+       Contains:
+       - A breadcrumb so visitors can navigate back easily
+       - The year as a big heading
+       - A painting count subtitle
+       - A giant ghost watermark (the per-year design signature)
+         positioned in the background with CSS
+       ============================================================ -->
+  <div class="year-hero">
+
+    <!-- Ghost watermark — positioned behind everything via CSS -->
+    <div class="year-watermark" aria-hidden="true">2024</div>
+
+    <!-- Breadcrumb navigation -->
+    <p class="year-breadcrumb">
+      <a href="../portfolio.html">← Portfolio</a>
+    </p>
+
+    <h1 class="year-title">2024</h1>
+
+    <!-- Update this number to match the actual number of paintings -->
+    <p class="year-count">7 works</p>
+
+  </div>
+
+  <!-- ============================================================
+       PAINTINGS GRID
+       Each .painting-card shows one painting with its details and
+       an "Inquire" link.
+
+       HOW TO FILL IN REAL PAINTINGS:
+       1. Save each image as:  ../images/portfolio/2025/painting-name.jpg
+          Use portrait orientation (taller than wide) where possible.
+       2. Update the src, alt, title, medium, and dimensions.
+       3. Update the href on .inquire-btn to link to the contact page,
+          pre-filling the painting's name in the subject if you like:
+          href="../contact.html?subject=purchase"
+          (A more advanced version can pre-fill the email subject with
+          JavaScript — ask me when you're ready for that.)
+
+       HOW TO DUPLICATE A YEAR PAGE:
+       1. Copy this entire 2025.html file.
+       2. Rename it 2024.html (or whatever year).
+       3. Change the --year-accent color on <body>.
+       4. Change "2025" to "2024" in the watermark, heading, and title tag.
+       5. Replace the painting cards with that year's works.
+       ============================================================ -->
+  <section class="paintings-section">
+    <div class="paintings-grid">
+
+      <!-- PAINTING 1 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2024/1.jpg"
+          alt="The Afternoon Door, 2024, oil on linen"
+        />
+        <div class="painting-info">
+          <p class="painting-title">Contemporary Witches Identifiers IV</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 60 × 70 cm &nbsp;·&nbsp; 2024</p>
+          <a
+            href="../contact.html"
+            class="inquire-btn"
+          >Inquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- PAINTING 2 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2024/2.jpg"
+          alt="Between Rooms, 2025, oil on panel"
+        />
+        <div class="painting-info">
+          <p class="painting-title">The Inner Beauty I</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 100 × 150 cm &nbsp;·&nbsp; 2024</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- PAINTING 3 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2024/3.jpg"
+          alt="Still with Open Window, 2025, oil on linen"
+        />
+        <div class="painting-info">
+          <p class="painting-title">Contemporary Witches Identifiers II</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 50 × 60 cm &nbsp;·&nbsp; 2024</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- PAINTING 4 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2024/4.jpg"
+          alt="The Weight of Noon, 2025, oil on linen"
+        />
+        <div class="painting-info">
+          <p class="painting-title">The Inner Beauty II</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 50 × 60 cm &nbsp;·&nbsp; 2024</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- PAINTING 5 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2024/5.jpg"
+          alt="Inventory of a Small Room, 2025, oil on panel"
+        />
+        <div class="painting-info">
+          <p class="painting-title">Contemporary Witches Identifiers I</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 70 × 100 cm &nbsp;·&nbsp; 2024</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- PAINTING 6 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2024/6.jpg"
+          alt="Last Light Before the Shift, 2025, oil on linen"
+        />
+        <div class="painting-info">
+          <p class="painting-title">END</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 60 × 70 cm &nbsp;·&nbsp; 2024</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- PAINTING 7 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2024/7.jpg"
+          alt="Last Light Before the Shift, 2025, oil on linen"
+        />
+        <div class="painting-info">
+          <p class="painting-title">The (Holy) Trinity</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp;60 × 100 cm &nbsp;·&nbsp; 2024</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       YEAR NAVIGATION
+       Links to the previous and next year pages. When 2025 is the
+       most recent year, remove the "Next year" link (or update it
+       when 2026 is ready). When a year is the oldest, remove the
+       "Previous year" link.
+       ============================================================ -->
+  <nav class="year-nav" aria-label="Year navigation">
+
+    <a href="2024.html">← 2024</a>
+
+    <a href="../portfolio.html" class="year-nav-all">All works</a>
+
+    <!--
+      When a newer year exists, uncomment this link:
+      <a href="2026.html">2026 →</a>
+
+      For now, 2025 is the latest year so we show nothing on the right.
+    -->
+    <span></span>
+
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,878 @@
+/* ==========================================================================
+   DESIGN TOKENS
+   Define all colors, fonts, and spacing in one place at the top.
+   Change a value here and it updates everywhere on the site.
+   ========================================================================== */
+:root {
+  --color-bg:         #f3ecdd;   /* warm beige — main background */
+  --color-panel:      #faf6ec;   /* slightly lighter, for image backgrounds */
+  --color-text:       #2e2a22;   /* warm near-black (softer than pure #000) */
+  --color-text-muted: #6b6354;   /* grey-brown for secondary text */
+  --color-line:       #d8cfb8;   /* hairline dividers */
+  --color-accent:     #a98344;   /* antique gold — used sparingly site-wide */
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body:    "Cormorant Garamond", Georgia, serif;
+  --font-ui:      "Work Sans", Arial, sans-serif;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+}
+
+/* ==========================================================================
+   RESET / BASE STYLES
+   Clear out default browser styling so our CSS behaves the same in
+   Chrome, Firefox, and Safari.
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block; /* removes the small unexplained gap images get by default */
+}
+
+/* Visible keyboard focus ring — never remove this without replacing it */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   TOP BAR (shared across every page)
+   ========================================================================== */
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-title {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Hand-drawn-style SVG flourish under the name */
+.brand-flourish {
+  width: 110px;
+  height: 10px;
+  margin-top: 2px;
+  stroke: var(--color-accent);
+  stroke-width: 1.4;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding-top: var(--space-1);
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--color-text);
+}
+
+/* Thin underline that grows in on hover/active */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: var(--color-accent);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  width: 100%;
+}
+
+.nav-icon {
+  display: inline-flex;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-icon:hover {
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   HOMEPAGE HERO (split layout)
+   ========================================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: calc(100vh - 140px);
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-5);
+  max-width: 540px;
+}
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+
+.statement {
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.55;
+  margin-bottom: var(--space-4);
+}
+
+.cta-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btn {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.8rem;
+  border-radius: 2px;
+  border: 1px solid var(--color-text);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-text);
+  color: var(--color-panel);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.hero-image {
+  background-color: var(--color-panel);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   SHARED INNER PAGE LAYOUT
+   Used by portfolio, exhibitions, story, and contact pages.
+   ========================================================================== */
+.page-main {
+  padding: var(--space-5);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.page-heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 3.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.page-subheading {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   PORTFOLIO PAGE (year grid with hover effect)
+   ========================================================================== */
+
+/* Edge-to-edge grid with hairline gaps between cards */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+/* Each card is a full <a> tag — the whole card is clickable */
+.year-card {
+  position: relative;     /* required for the overlay */
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  display: block;
+  cursor: pointer;
+}
+
+.year-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Overlay: transparent at rest, darkens on hover */
+.year-overlay {
+  position: absolute;
+  inset: 0;  /* shorthand for top:0; right:0; bottom:0; left:0 */
+  background: rgba(46, 42, 34, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+/* Year number: invisible at rest, fades in on hover */
+.year-label {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: rgba(250, 246, 236, 0);
+  transition: color 0.4s ease;
+}
+
+.year-card:hover .year-overlay {
+  background: rgba(46, 42, 34, 0.5);
+}
+
+.year-card:hover .year-label {
+  color: rgba(250, 246, 236, 0.95);
+}
+
+.year-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   EXHIBITIONS PAGE
+   ========================================================================== */
+.exhibitions-section {
+  margin-bottom: var(--space-5);
+}
+
+/* "Upcoming" / "Past" labels */
+.section-tag {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.exhibition-list {
+  list-style: none;
+}
+
+/* Year on the left, info on the right */
+.exhibition-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-line);
+  align-items: start;
+}
+
+.exhibition-year {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.exhibition-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.exhibition-venue {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.exhibition-dates {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+
+.exhibition-tag {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: 2px;
+  margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   STORY (ABOUT) PAGE
+   ========================================================================== */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.story-portrait img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.story-content {
+  padding-top: var(--space-1);
+}
+
+.story-name {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 3rem;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  margin-bottom: var(--space-1);
+}
+
+.story-tagline {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.story-bio p {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  line-height: 1.75;
+  margin-bottom: var(--space-3);
+}
+
+.story-details {
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-2);
+}
+
+.story-detail-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: var(--space-2);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-line);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+}
+
+.story-detail-label {
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   CONTACT PAGE
+   ========================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.contact-intro {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+}
+
+.contact-details {
+  list-style: none;
+}
+
+.contact-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.contact-detail-label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.contact-detail-value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.contact-detail-value a:hover {
+  color: var(--color-accent);
+}
+
+.contact-collab {
+  margin-top: var(--space-3);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+/* Right column: form */
+.form-heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+}
+
+.form-group {
+  margin-bottom: var(--space-2);
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.4rem;
+}
+
+/* Bottom-line-only inputs — open, artistic feel */
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-line);
+  padding: 0.5rem 0;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  appearance: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-submit {
+  margin-top: var(--space-3);
+}
+
+/* ==========================================================================
+   YEAR SUB-PAGES  (portfolio/2025.html, etc.)
+   
+   HOW THE YEAR ACCENT WORKS:
+   Each year page sets its own --year-accent color on the <body> tag:
+     <body style="--year-accent: #7a8c7a">
+   This changes the accent band, the watermark, and the inquire button —
+   giving each year a subtle, unique identity while staying in the palette.
+   ========================================================================== */
+
+/* The thin colored band: very first thing on the page */
+.year-accent-band {
+  height: 3px;
+  background-color: var(--year-accent, var(--color-accent));
+}
+
+.year-hero {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-line);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Giant semi-transparent year in the background — the per-year design touch */
+.year-watermark {
+  position: absolute;
+  right: var(--space-5);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 14rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--year-accent, var(--color-accent));
+  opacity: 0.07;
+  pointer-events: none;  /* can't accidentally click on it */
+  user-select: none;     /* can't accidentally highlight it */
+}
+
+.year-breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.year-breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+.year-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 4.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin-bottom: var(--space-1);
+}
+
+.year-count {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.paintings-section {
+  padding: var(--space-5);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.paintings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.painting-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.painting-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.painting-card:hover img {
+  opacity: 0.88;
+}
+
+.painting-info {
+  padding: var(--space-2) 0 var(--space-1);
+}
+
+.painting-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+
+.painting-meta {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+/* The "Inquire about this piece" link — picks up the year's accent color */
+.inquire-btn {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--year-accent, var(--color-accent));
+  border-bottom: 1px solid var(--year-accent, var(--color-accent));
+  padding-bottom: 2px;
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+.inquire-btn:hover {
+  opacity: 0.6;
+}
+
+/* Prev / Next year navigation at the bottom of year pages */
+.year-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.year-nav a {
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.year-nav a:hover {
+  color: var(--color-text);
+}
+
+.year-nav-all {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+  .topbar {
+    padding: var(--space-3);
+  }
+
+  /* Homepage */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-text {
+    max-width: none;
+    padding: var(--space-4) var(--space-3);
+    order: 2;
+  }
+
+  .hero-image {
+    order: 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .statement {
+    font-size: 1.25rem;
+  }
+
+  /* Inner pages */
+  .page-main {
+    padding: var(--space-3);
+  }
+
+  .page-heading {
+    font-size: 2.5rem;
+  }
+
+  /* Portfolio */
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Exhibitions */
+  .exhibition-item {
+    grid-template-columns: 70px 1fr;
+  }
+
+  .exhibition-year {
+    font-size: 1.5rem;
+  }
+
+  /* Story */
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-portrait img {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Year sub-pages */
+  .year-hero {
+    padding: var(--space-3);
+  }
+
+  .year-title {
+    font-size: 3rem;
+  }
+
+  .year-watermark {
+    font-size: 8rem;
+    right: var(--space-3);
+  }
+
+  .paintings-section {
+    padding: var(--space-3);
+  }
+
+  .paintings-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .year-nav {
+    padding: var(--space-3);
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .year-label {
+    font-size: 3.5rem;
+  }
+
+  .paintings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Respect the user's preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+/* ==========================================================================
+   SPECIFIEKE JAARPAGINA (Zorgt dat schilderijen hun eigen vorm behouden)
+   ========================================================================== */
+
+/* We overschrijven de harde 3:4 verhouding alleen voor de schilderijenpagina's */
+.paintings-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;          /* Iets meer ademruimte tussen de echte werken */
+  align-items: start; /* Zorgt dat liggende en staande werken netjes bovenaan uitlijnen */
+}
+
+.paintings-page-grid .painting-card {
+  display: block;
+  width: 100%;
+}
+
+.paintings-page-grid .painting-card img {
+  width: 100%;
+  height: auto;        /* De hoogte schaalt nu organisch mee met de foto */
+  object-fit: contain; /* Toont het volledige schilderij zonder crops of stretch */
+  aspect-ratio: auto;  /* Wist de harde 3:4 verhouding uit de oude code */
+}

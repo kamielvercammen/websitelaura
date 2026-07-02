@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- This makes the site resize properly on phones and tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laura Theeuwen</title>
+  <link rel="icon" type="image/jpeg" href="images/homepage/yourimage.png">
+  <meta name="description" content="Laura Theeuwen is a painter working in magic realism. Explore her portfolio, exhibitions, and story." />
+
+  <!--
+    GOOGLE FONTS
+    We're loading two typefaces:
+    1. "Cormorant Garamond" — a thin, elegant serif. This is used for Laura's
+       name and for the artist statement, because it feels handwritten /
+       painterly without being decorative.
+    2. "Work Sans" — a clean, neutral sans-serif. This is the "workhorse"
+       font used for navigation, buttons, and small labels like "Painter".
+    The numbers after each font name (300;400;500) are the WEIGHTS we want
+    to load. Lower numbers = thinner/lighter text.
+  -->
+<link rel="stylesheet" href="style.css">  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Work+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Our own stylesheet. Always load this AFTER the Google Fonts link. -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       TOP BAR
+       This is the "header" the brief asked for: Laura's name + title,
+       left-aligned, sitting in its own strip above the main image so
+       it never overlaps the painting. The navigation and the
+       Instagram icon live in the same strip, aligned to the right.
+       ============================================================ -->
+  <header class="topbar">
+
+    <!-- Her name acts as the logo. The little squiggle under it is an
+         SVG line — a small hand-drawn-style flourish that is ONLY on
+         the homepage, used sparingly so it feels special rather than
+         decorative. -->
+    <a href="index.html" class="brand">
+      <span class="brand-name">Laura Theeuwen</span>
+      <span class="brand-title">Painter</span>
+      
+      
+    </a>
+
+    <!-- Main navigation. Using a <nav> tag tells screen readers and
+         search engines "this is the site's navigation menu". -->
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link is-active">Home</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="exhibitions.html" class="nav-link">Exhibitions</a>
+      <a href="story.html" class="nav-link">Story</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+
+      <!-- Instagram icon, drawn as inline SVG so we don't depend on an
+           icon font or external library. Replace the href with her
+           real Instagram URL. -->
+      <a href="https://www.instagram.com/laura_theeuwen_art/" class="nav-icon" aria-label="Laura Theeuwen on Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       HERO / HOMEPAGE SPLIT
+       This is the two-column layout from the brief:
+       - Left half: artist statement + the two call-to-action buttons
+       - Right half: one large image of a painting
+       On phones, CSS will stack these on top of each other (see
+       style.css, the @media section near the bottom).
+       ============================================================ -->
+  <main class="hero">
+
+    <div class="hero-text">
+      <p class="eyebrow">Artist Statement</p>
+
+      <!--
+        PLACEHOLDER COPY: rewrite this paragraph in Laura's own voice.
+        Keep it short — 2 to 4 sentences reads as confident; a long
+        block reads as unsure. This is just a starting structure.
+      -->
+      <p class="statement">
+        "In a world flooded by a constant stream of intense and overwhelming media imagery, my paintings seek stillness and the active power of hope. I create a dreamlike, layered reality where objects, hybrid figures, warm colours and poetic titles invite deceleration and emotional connection. The viewer is initially drawn in by an aesthetic of tranquility and beauty, before a deeper layer of human vulnerability, memory and care gradually unfolds. My work thus functions as a poetic counterweight: a space for reflection and meaning-making amidst social and inner unrest."
+      </p>
+
+      <div class="cta-row">
+        <a href="story.html" class="btn btn-primary">Story</a>
+        <a href="portfolio.html" class="btn btn-secondary">Works</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <!--
+        REPLACE THIS IMAGE:
+        Save Laura's painting as: images/homepage/featured-painting.jpg
+        Then change the src below to "images/homepage/featured-painting.jpg"
+
+        Right now it points to a placeholder generator (placehold.co) just
+        so you can see the layout working before you have a final photo.
+        Use a portrait-orientation (taller than wide) photo for the best fit.
+      -->
+      <img
+        src="images/homepage/featured-painting.jpg"
+        alt="Featured painting by Laura Theeuwen"
+      />
+    </div>
+
+  </main>
+
+</body>
+</html>

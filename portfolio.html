@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Laura Theeuwen</title>
+  <link rel="icon" type="image/png" href="images/homepage/yourimage.png">
+  <meta name="description" content="Paintings by Laura Theeuwen, organised by year." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Work+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       TOP BAR
+       Same on every page. The only thing that changes is which
+       nav link has the "is-active" class — here it's "Portfolio".
+       ============================================================ -->
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <span class="brand-name">Laura Theeuwen</span>
+      <span class="brand-title">Painter</span>
+      </svg>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="portfolio.html" class="nav-link is-active">Portfolio</a>
+      <a href="exhibitions.html" class="nav-link">Exhibitions</a>
+      <a href="story.html" class="nav-link">Story</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="https://www.instagram.com/laura_theeuwen_art/" class="nav-icon" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Page header sits inside .page-main for consistent padding -->
+    <div class="page-main">
+      <header class="page-header">
+        <h1 class="page-heading">Portfolio</h1>
+        <p class="page-subheading">Works by year — hover to reveal, click to explore</p>
+      </header>
+    </div>
+
+    <!-- ============================================================
+         YEAR GRID
+         This runs edge-to-edge (no .page-main wrapper) for a
+         gallery-wall feel. Each card is a full <a> tag, so the
+         entire image is clickable.
+
+         HOW TO ADD A NEW YEAR:
+         1. Copy one <a class="year-card"> block.
+         2. Update the href, the alt text, and the year in .year-label.
+         3. Replace the placeholder src with the real hero image path.
+         4. Create the matching portfolio/YEAR.html file (use
+            portfolio/2025.html as your template).
+
+         HOW TO REPLACE PLACEHOLDER IMAGES:
+         Save each year's hero painting as:
+           images/portfolio/YEAR-hero.jpg
+         Then change the src to: images/portfolio/YEAR-hero.jpg
+         ============================================================ -->
+    <section class="portfolio-grid" aria-label="Works by year">
+
+      <a href="portfolio/2026.html" class="year-card">
+        <img
+          src="images/portfolio/2026-hero.jpg"
+          alt="Selected work from 2025-2026"
+        />
+        <div class="year-overlay">
+          <span class="year-label">2025-2026</span>
+        </div>
+      </a>
+
+      <a href="portfolio/2024.html" class="year-card">
+        <img
+          src="images/portfolio/2024-hero.jpg"
+          alt="Selected work from 2024"
+        />
+        <div class="year-overlay">
+          <span class="year-label">2024</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+</body>
+</html>
