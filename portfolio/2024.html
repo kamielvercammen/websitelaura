@@ -248,6 +248,37 @@
     <span></span>
 
   </nav>
+<!-- ============================================================
+       LIGHTBOX MODAL
+       This hidden popup will show the uncropped image when clicked.
+       ============================================================ -->
+  <dialog id="lightbox" onclick="this.close()" style="background: rgba(0,0,0,0.9); border: none; width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; padding: 0; margin: 0; justify-content: center; align-items: center; cursor: pointer;">
+    <img id="lightbox-img" src="" alt="Full size painting" style="max-width: 95vw; max-height: 95vh; object-fit: contain; margin: auto; display: block; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+    <p style="color: #fff; font-family: 'Work Sans', sans-serif; font-size: 14px; text-align: center; margin-top: 10px; position: absolute; bottom: 20px; width: 100%; letter-spacing: 1px;">Click anywhere to close</p>
+  </dialog>
+
+  <!-- JavaScript to trigger the lightbox -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    // Find all images inside the painting cards
+    document.querySelectorAll('.painting-card img').forEach(img => {
+      // Make the cursor show a pointer so users know it's clickable
+      img.style.cursor = 'pointer';
+      
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src; // Copy the clicked image URL
+        lightbox.showModal();      // Open the full screen popup
+        lightbox.style.display = 'flex'; // Align image perfectly in center
+      });
+    });
+
+    // Reset display style when closed
+    lightbox.addEventListener('close', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
 
 </body>
 </html>
