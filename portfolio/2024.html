@@ -20,6 +20,33 @@
     page uses this same path: ../css/style.css
   -->
   <link rel="stylesheet" href="../css/style.css" />
+<!-- Specifieke mobiele fix voor Laura's fullsize grid zonder de desktop-layout te breken -->
+  <style>
+    @media (max-width: 767px) {
+      /* Zet de grid om naar een nette, vloeiende lijst onder elkaar */
+      .paintings-page-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+        padding: 0 10px !important;
+      }
+
+      /* Zorg dat de kaartjes de volledige breedte van het gsm-scherm benutten */
+      .paintings-page-grid .painting-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        grid-column: auto !important; /* Reset eventuele desktop-spans */
+      }
+
+      /* DIT IS HET GEHEIM: Toon de afbeeldingen prachtig groot én volledig onafgeknipt */
+      .paintings-page-grid .painting-card img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important; /* Garandeert dat er absoluut GEEN crop plaatsvindt */
+        max-height: 70vh !important;    /* Voorkomt dat een heel hoog schilderij buiten het scherm valt */
+      }
+    }
+  </style>
 </head>
 
 <!--
@@ -126,7 +153,7 @@
        5. Replace the painting cards with that year's works.
        ============================================================ -->
   <section class="paintings-section">
-    <div class="paintings-grid">
+    <div class="paintings-page-grid">
 
       <!-- PAINTING 1 -->
       <article class="painting-card">

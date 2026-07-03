@@ -20,6 +20,33 @@
     page uses this same path: ../css/style.css
   -->
   <link rel="stylesheet" href="../css/style.css" />
+<!-- Specifieke mobiele fix voor Laura's fullsize grid zonder de desktop-layout te breken -->
+  <style>
+    @media (max-width: 767px) {
+      /* Zet de grid om naar een nette, vloeiende lijst onder elkaar */
+      .paintings-page-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+        padding: 0 10px !important;
+      }
+
+      /* Zorg dat de kaartjes de volledige breedte van het gsm-scherm benutten */
+      .paintings-page-grid .painting-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        grid-column: auto !important; /* Reset eventuele desktop-spans */
+      }
+
+      /* DIT IS HET GEHEIM: Toon de afbeeldingen prachtig groot én volledig onafgeknipt */
+      .paintings-page-grid .painting-card img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important; /* Garandeert dat er absoluut GEEN crop plaatsvindt */
+        max-height: 70vh !important;    /* Voorkomt dat een heel hoog schilderij buiten het scherm valt */
+      }
+    }
+  </style>
 </head>
 
 <!--
@@ -127,7 +154,7 @@
        5. Replace the painting cards with that year's works.
        ============================================================ -->
   <section class="paintings-section">
-    <div class="paintings-grid">
+    <div class="paintings-page-grid">
 
 <!-- PAINTING 13 -->
       <article class="painting-card style="grid-column: span 2;"">
@@ -247,6 +274,42 @@ the weight of the memory of everything you have been through</p>
         <div class="painting-info">
           <p class="painting-title">Anamnesia; a feeling the soul already knew, like a sense of home</p>
           <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 40 × 30 cm &nbsp;·&nbsp; 2026</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+<!-- PAINTING 9 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2026/4.jpg"
+          alt="Between Rooms, 2025, oil on panel"
+        />
+        <div class="painting-info">
+          <p class="painting-title">Tapeitia</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 21 x 29 cm &nbsp;·&nbsp; 2025</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+<!-- PAINTING 9 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2026/10.jpg"
+          alt="Between Rooms, 2025, oil on panel"
+        />
+        <div class="painting-info">
+          <p class="painting-title">Apricity; the warmth of the sun on a cold winter day</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 120 × 100 cm &nbsp;·&nbsp; 2025</p>
+          <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
+        </div>
+      </article>
+<!-- PAINTING 9 -->
+      <article class="painting-card">
+        <img
+          src="../images/portfolio/2026/14.jpg"
+          alt="Between Rooms, 2025, oil on panel"
+        />
+        <div class="painting-info">
+          <p class="painting-title">Secaneard: the searching for a permanent place to live, for a home</p>
+          <p class="painting-meta">Oil on canvas &nbsp;·&nbsp; 40 × 50 cm &nbsp;·&nbsp; 2025</p>
           <a href="../contact.html" class="inquire-btn">Inquire about this piece</a>
         </div>
       </article>
