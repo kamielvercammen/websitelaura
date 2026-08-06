@@ -298,33 +298,30 @@ button:focus-visible {
   transition: transform 0.6s ease;
 }
 
-/* Overlay: transparent at rest, darkens on hover */
+/* Overlay: altijd subtiel gedimd voor leesbaarheid */
 .year-overlay {
   position: absolute;
-  inset: 0;  /* shorthand for top:0; right:0; bottom:0; left:0 */
-  background: rgba(46, 42, 34, 0);
+  inset: 0;
+  background: rgba(46, 42, 34, 0.45); /* Altijd een donkere laag over de foto */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: background 0.4s ease;
 }
 
-/* Year number: invisible at rest, fades in on hover */
+/* Year number: altijd volledig zichtbaar */
 .year-label {
   font-family: var(--font-display);
   font-size: 5rem;
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: rgba(250, 246, 236, 0);
-  transition: color 0.4s ease;
+  color: rgba(250, 246, 236, 1); /* Altijd wit/helder */
 }
 
+/* Optioneel: bij hover wordt de achtergrond net iets donkerder voor interactie */
 .year-card:hover .year-overlay {
-  background: rgba(46, 42, 34, 0.5);
-}
-
-.year-card:hover .year-label {
-  color: rgba(250, 246, 236, 0.95);
+  background: rgba(46, 42, 34, 0.65);
 }
 
 .year-card:hover img {
